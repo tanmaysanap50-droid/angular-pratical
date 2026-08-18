@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="sharedApp">
+<head>
+    <meta charset="utf-8">
+    <title>Data Sharing with Service</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body>
+
+<div ng-controller="FirstController">
+    <h2>First Controller</h2>
+    <p>Message: {{ message }}</p>
+    <input type="text" ng-model="newMessage">
+    <button ng-click="updateMessage()">Update Message</button>
+</div>
+
+<hr>
+
+<div ng-controller="SecondController">
+    <h2>Second Controller</h2>
+    <p>Message from Service: {{ message }}</p>
+    <button ng-click="clearMessage()">Clear Message</button>
+</div>
+
+<script src="app5.js"></script>
+
+</body>
+</html>
