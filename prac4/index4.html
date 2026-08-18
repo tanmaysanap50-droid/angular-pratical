@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS Routing Example</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
+    <script src="app4.js"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 20px;
+        }
+
+        nav a {
+            margin-right: 15px;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background: #007BFF;
+            color: white;
+        }
+
+        nav a.active {
+            background: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>AngularJS SPA with Routing</h1>
+
+<nav>
+    <a href="#!/home" ng-class="{'active': isActive('/')}">Home</a>
+    <a href="#!/about" ng-class="{'active': isActive('/about')}">About</a>
+    <a href="#!/contact" ng-class="{'active': isActive('/contact')}">Contact</a>
+</nav>
+
+<div ng-view></div>
+
+</body>
+</html>
