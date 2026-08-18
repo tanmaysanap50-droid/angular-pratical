@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app="apiApp">
+<head>
+    <meta charset="UTF-8">
+    <title>REST API Integration - AngularJS</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app2.js"></script>
+
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            cursor: pointer;
+            background: #f2f2f2;
+        }
+
+        input {
+            margin-bottom: 10px;
+            padding: 5px;
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body ng-controller="ApiController">
+
+    <h2>User List</h2>
+
+    <input type="text"
+           ng-model="searchText"
+           placeholder="Search by name or email...">
+
+    <table>
+        <thead>
+            <tr>
+                <th ng-click="sortBy('name')">Name</th>
+                <th ng-click="sortBy('email')">Email</th>
+                <th ng-click="sortBy('phone')">Phone</th>
+                <th ng-click="sortBy('company.name')">Company</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr ng-repeat="user in users | filter:searchText | orderBy:sortField:reverseSort">
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.phone}}</td>
+                <td>{{user.company.name}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
